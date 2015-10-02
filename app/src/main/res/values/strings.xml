@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PrimeBlend</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_evaluacion">EvaluacionActivity</string>
+    <string name="title_activity_catalogo">CatalogoActivity</string>
+    <string name="title_activity_cotizador">CotizadorActivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+
+    <string name="evaluacion">Evaluación</string>
+    <string name="catalogo">Catálogoo</string>
+    <string name="cotizador">Cotizador</string>
+    <string name="calendario">Calendario</string>
+</resources>
