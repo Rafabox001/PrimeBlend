@@ -9,11 +9,36 @@
     <string name="title_activity_calendar">CalendarActivity</string>
 
     <string name="evaluacion">Evaluación</string>
-    <string name="catalogo">Catálogoo</string>
+    <string name="catalogo">Catálogo</string>
     <string name="cotizador">Cotizador</string>
     <string name="calendario">Calendario</string>
 
     <!-- Evaluation process -->
     <string name="register">Registrame</string>
     <string name="already_register">Ya estoy registrado</string>
+    <string name="intro_register">Ayúdanos completando tus datos y pronto recibirás información exclusiva de Prime Blend \n \n ¡Gracias!</string>
+    <string name="name_hint">Nombre</string>
+    <string name="mail_hint">e-mail</string>
+    <string name="phone_hint">Teléfono</string>
+    <string name="ocupation_hint">Profesión</string>
+    <string name="interested">En qué línea estás interesado:</string>
+    <string name="send">Enviar</string>
+    <string name="help_us">Ayúdanos completando esta encuesta de calidad de servicio, solo debes registrar tu e-mail con el que te registraste \n \n ¡Gracias!</string>
+    <string name="next">Siguiente</string>
+    <!-- Survey -->
+    <string name="q1">1) ¿Comó se enteró de nosotros?</string>
+    <string name="media">Medios:</string>
+    <string name="q2">2) En general, ¿Comó considera la calidad de nuestra atención</string>
+    <string name="q3">3) ¿Recomendaría nuestra sala de exhibición?</string>
+    <string name="why_hint">¿Por qué?</string>
+    <string name="q4">4) ¿Le gustaría información acerca de nuestras actividades y productos?</string>
+    <string name="comment_hint">COMENTARIOS:</string>
+    <string name="privacy_text">Política de privacidad \n \n Para consultar nuestra política de privacidad puede accesar directamente
+                        en nuestra pagina oficial</string>
+    <string name="privacy_url">www.primeblend.com.mx</string>
+
+
+    <!-- Evaluation process -->
+    <string name="calendar_intro">Déjanos tu E-Mail para recibir más información sobre futuros eventos:</string>
+
 </resources>

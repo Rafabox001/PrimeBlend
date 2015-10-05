@@ -6,4 +6,6 @@
 
     <color name="buttonColor">#4E2D82</color>
     <color name="white">#FFFFFF</color>
+    <color name="text_gray">#8E8B8A</color>
+    <color name="transparency_white">#CCFFFFFF</color>
 </resources>

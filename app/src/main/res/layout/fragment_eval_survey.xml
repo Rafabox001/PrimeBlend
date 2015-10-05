@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.manguitostudios.primeblend.fragments.CotizadorFirstFragment"
-    android:background="@drawable/background9">
+    tools:context="com.manguitostudios.primeblend.fragments.EvaluacionFirstFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -18,6 +17,7 @@
         android:id="@+id/transparency"/>
 
     <LinearLayout
+        android:id="@+id/surveyPart1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -28,6 +28,23 @@
         android:layout_marginEnd="@dimen/activity_vertical_margin">
 
 
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/surveyPart2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin">
 
 
 
