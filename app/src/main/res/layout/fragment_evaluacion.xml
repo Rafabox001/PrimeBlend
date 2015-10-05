@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.manguitostudios.primeblend.fragments.MainActivityFragment"
+    android:background="@drawable/background4">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/screen_transparency"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin">
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:background="@color/buttonColor"
+            android:textColor="@color/white"
+            android:layout_marginTop="40dp"
+            android:padding="20dp"
+            android:layout_marginLeft="@dimen/margin_button"
+            android:layout_marginStart="@dimen/margin_button"
+            android:layout_marginRight="@dimen/margin_button"
+            android:layout_marginEnd="@dimen/margin_button"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/already_register_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/already_register"
+            android:background="@color/buttonColor"
+            android:textColor="@color/white"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:padding="20dp"
+            android:layout_marginLeft="@dimen/margin_button"
+            android:layout_marginStart="@dimen/margin_button"
+            android:layout_marginRight="@dimen/margin_button"
+            android:layout_marginEnd="@dimen/margin_button"
+            android:textAllCaps="true"/>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

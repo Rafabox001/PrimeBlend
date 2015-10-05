@@ -12,4 +12,8 @@
     <string name="catalogo">Catálogoo</string>
     <string name="cotizador">Cotizador</string>
     <string name="calendario">Calendario</string>
+
+    <!-- Evaluation process -->
+    <string name="register">Registrame</string>
+    <string name="already_register">Ya estoy registrado</string>
 </resources>
