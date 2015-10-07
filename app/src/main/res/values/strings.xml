@@ -33,12 +33,39 @@
     <string name="why_hint">¿Por qué?</string>
     <string name="q4">4) ¿Le gustaría información acerca de nuestras actividades y productos?</string>
     <string name="comment_hint">COMENTARIOS:</string>
-    <string name="privacy_text">Política de privacidad \n \n Para consultar nuestra política de privacidad puede accesar directamente
+    <string name="privacy_text">Política de privacidad \n \n Para consultar nuestra política de privacidad puede accesar \n directamente
                         en nuestra pagina oficial</string>
     <string name="privacy_url">www.primeblend.com.mx</string>
+    <string name="q1_op1">Restaurante</string>
+    <string name="q1_op2">Evento</string>
+    <string name="q1_op3">Referido</string>
+    <string name="media_op1">Digital</string>
+    <string name="media_op2">Impreso</string>
+    <string name="media_op3">Otro</string>
+    <string name="q2_op1">Excelente</string>
+    <string name="q2_op2">Bueno</string>
+    <string name="q2_op3">Regular</string>
+    <string name="q2_op4">Malo</string>
+    <string name="q2_op5">Muy Malo</string>
+    <string name="op_yes">Sí</string>
+    <string name="op_no">No</string>
+    <string name="purchase">¿Realizaste alguna compra?</string>
+    <string name="purchase_q1">1) ¿Qué marca compró?</string>
+    <string name="other_hint">Otro</string>
+    <string name="amount_hint">Monto</string>
+    <string name="despacho">2) Despacho distribuidor encargado del diseño de la cocina</string>
+    <string name="sucursal">3) Sucursal</string>
+    <string name="salesman">4) Vendedor Responsable</string>
+
+    <!-- Catalog and cotizador process -->
+    <string name="coccion">Cocción</string>
+    <string name="refrigeracion">Refrigeración</string>
+    <string name="ventilacion">Ventilación</string>
+    <string name="complementos">Complementos</string>
+    <string name="colecciones">Colecciones</string>
 
 
-    <!-- Evaluation process -->
+    <!-- Calendar process -->
     <string name="calendar_intro">Déjanos tu E-Mail para recibir más información sobre futuros eventos:</string>
 
 </resources>

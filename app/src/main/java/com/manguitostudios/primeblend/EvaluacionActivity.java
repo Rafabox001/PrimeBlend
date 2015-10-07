@@ -13,6 +13,7 @@ public class EvaluacionActivity extends AppCompatActivity {
 
     public static final String TAG_EVAL_FRAGMENT = "EvaluacionFragment";
     public static final String TAG_EVAL_CAPTURE = "RegisterFragment";
+    public static final String TAG_EVAL_SURVEY = "SurveyFragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -33,10 +33,10 @@
             android:text="@string/intro_register"
             android:textColor="@color/white"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <EditText
             android:id="@+id/name"
@@ -46,10 +46,10 @@
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
             android:textAllCaps="true"/>
 
         <EditText
@@ -60,10 +60,10 @@
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
             android:textAllCaps="true"/>
 
         <EditText
@@ -74,10 +74,10 @@
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
             android:textAllCaps="true"/>
 
         <EditText
@@ -88,10 +88,10 @@
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
             android:textAllCaps="true"/>
 
         <TextView
@@ -100,26 +100,26 @@
             android:text="@string/interested"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin">
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin">
 
             <ImageView
                 android:id="@+id/monogram"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="65dp"
                 android:background="@drawable/monogram"
                 android:layout_marginLeft="@dimen/small_separation"
                 android:layout_marginStart="@dimen/small_separation"
@@ -130,7 +130,7 @@
                 android:id="@+id/profile"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="65dp"
                 android:background="@drawable/profile"
                 android:layout_marginLeft="@dimen/small_separation"
                 android:layout_marginStart="@dimen/small_separation"
@@ -141,7 +141,7 @@
                 android:id="@+id/iomabe"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="65dp"
                 android:background="@drawable/iomabe"
                 android:layout_marginLeft="@dimen/small_separation"
                 android:layout_marginStart="@dimen/small_separation"
@@ -156,6 +156,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
             android:layout_gravity="center"
             android:background="@color/buttonColor"
             android:text="@string/send"
@@ -184,10 +185,10 @@
             android:text="@string/help_us"
             android:textColor="@color/white"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <EditText
             android:id="@+id/existing_mail"
@@ -197,10 +198,10 @@
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
             android:textAllCaps="true"/>
 
         <Button
@@ -209,6 +210,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
             android:layout_gravity="center"
             android:background="@color/buttonColor"
             android:text="@string/next"

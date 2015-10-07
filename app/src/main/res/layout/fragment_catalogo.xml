@@ -26,7 +26,56 @@
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin">
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/catalogo"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"
+            android:textAllCaps="true"/>
 
+        <ImageView
+            android:id="@+id/monogram"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/monogram"
+            android:layout_marginLeft="@dimen/small_separation"
+            android:layout_marginStart="@dimen/small_separation"
+            android:layout_marginRight="@dimen/small_separation"
+            android:layout_marginEnd="@dimen/small_separation"/>
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/profile"
+            android:layout_marginLeft="@dimen/small_separation"
+            android:layout_marginStart="@dimen/small_separation"
+            android:layout_marginRight="@dimen/small_separation"
+            android:layout_marginEnd="@dimen/small_separation"/>
+
+        <ImageView
+            android:id="@+id/iomabe"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/iomabe"
+            android:layout_marginLeft="@dimen/small_separation"
+            android:layout_marginStart="@dimen/small_separation"
+            android:layout_marginRight="@dimen/small_separation"
+            android:layout_marginEnd="@dimen/small_separation"/>
 
 
 
