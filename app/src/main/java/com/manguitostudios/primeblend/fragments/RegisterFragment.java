@@ -8,13 +8,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.manguitostudios.primeblend.EvaluacionActivity;
 import com.manguitostudios.primeblend.R;
+import com.manguitostudios.primeblend.Utils.onResponseRegister;
+import com.manguitostudios.primeblend.network.RegisterCalls;
 
+
+import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,6 +35,11 @@ public class RegisterFragment extends Fragment {
     @Bind(R.id.newRegister)LinearLayout newRegister;
     @Bind(R.id.existingRegister)LinearLayout existingRegister;
 
+    @Bind(R.id.name)EditText name;
+    @Bind(R.id.mail)EditText mail;
+    @Bind(R.id.phone)EditText phone;
+    @Bind(R.id.job)EditText job;
+
     public static final String PARAM_DISPLAY = "display";
     private String mDisplay;
 
@@ -42,6 +52,7 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_eval_capture_data, container, false);
         ButterKnife.bind(this, rootView);
+        ((EvaluacionActivity)getActivity()).updateFragment(EvaluacionActivity.TAG_EVAL_CAPTURE);
 
         if (getArguments() != null) {
             Bundle bundle = getArguments();
@@ -71,16 +82,19 @@ public class RegisterFragment extends Fragment {
 
     @OnClick(R.id.send)
     public void sendRegister(){
-        SurveyFragment surveyFragment = new SurveyFragment();
+        RegisterCalls registerCalls = new RegisterCalls(getActivity(), RegisterCalls.Request.registerRequest);
+        registerCalls.execute(name.getText().toString().toUpperCase(), mail.getText().toString(), phone.getText().toString(), job.getText().toString().toUpperCase());
+
+        /*SurveyFragment surveyFragment = new SurveyFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragment_evaluacion_container, surveyFragment, EvaluacionActivity.TAG_EVAL_SURVEY);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_SURVEY);
-        transaction.commit();
+        transaction.commit();*/
     }
 
-    @OnClick(R.id.send)
+    @OnClick(R.id.next)
     public void goSurvey(){
         SurveyFragment surveyFragment = new SurveyFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -90,4 +104,6 @@ public class RegisterFragment extends Fragment {
         transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_SURVEY);
         transaction.commit();
     }
+
+
 }

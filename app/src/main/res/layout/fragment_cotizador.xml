@@ -2,25 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.manguitostudios.primeblend.fragments.CotizadorFirstFragment">
+    tools:context="com.manguitostudios.primeblend.fragments.CatalogoFirstFragment">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:background="@drawable/background9"
         android:id="@+id/container"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:background="@drawable/screen_transparency"
         android:id="@+id/transparency"/>
 
     <LinearLayout
-        android:id="@+id/brands"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -81,125 +77,6 @@
             android:layout_marginRight="@dimen/small_separation"
             android:layout_marginEnd="@dimen/small_separation"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/categories"
-        android:visibility="visible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/internal_margin"
-        android:layout_marginStart="@dimen/internal_margin"
-        android:layout_marginRight="@dimen/internal_margin"
-        android:layout_marginEnd="@dimen/internal_margin">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/cotizador"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="@dimen/internal_margin"
-            android:layout_marginStart="@dimen/internal_margin"
-            android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@color/white">
-
-            <ImageView
-                android:id="@+id/choice"
-                android:layout_width="230dp"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/monogram"/>
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/coccion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/coccion"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="@dimen/margin_button"
-            android:layout_marginStart="@dimen/margin_button"
-            android:layout_marginRight="@dimen/margin_button"
-            android:layout_marginEnd="@dimen/margin_button"
-            android:textAllCaps="true"/>
-
-        <Button
-            android:id="@+id/refrigeracion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/refrigeracion"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="@dimen/margin_button"
-            android:layout_marginStart="@dimen/margin_button"
-            android:layout_marginRight="@dimen/margin_button"
-            android:layout_marginEnd="@dimen/margin_button"
-            android:textAllCaps="true"/>
-
-        <Button
-            android:id="@+id/ventilacion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ventilacion"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="@dimen/margin_button"
-            android:layout_marginStart="@dimen/margin_button"
-            android:layout_marginRight="@dimen/margin_button"
-            android:layout_marginEnd="@dimen/margin_button"
-            android:textAllCaps="true"/>
-
-        <Button
-            android:id="@+id/complementos"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/complementos"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="@dimen/margin_button"
-            android:layout_marginStart="@dimen/margin_button"
-            android:layout_marginRight="@dimen/margin_button"
-            android:layout_marginEnd="@dimen/margin_button"
-            android:textAllCaps="true"/>
-
-        <Button
-            android:id="@+id/colecciones"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/colecciones"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="@dimen/margin_button"
-            android:layout_marginStart="@dimen/margin_button"
-            android:layout_marginRight="@dimen/margin_button"
-            android:layout_marginEnd="@dimen/margin_button"
-            android:textAllCaps="true"/>
 
 
     </LinearLayout>

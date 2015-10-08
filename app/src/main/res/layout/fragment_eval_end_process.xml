@@ -20,7 +20,7 @@
         android:id="@+id/purchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/q1"
+            android:text="@string/purchase"
             android:textColor="@color/white"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="@dimen/internal_margin"
@@ -77,7 +77,7 @@
 
     <LinearLayout
         android:id="@+id/purchaseInfo"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -147,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="@dimen/small_separation"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"

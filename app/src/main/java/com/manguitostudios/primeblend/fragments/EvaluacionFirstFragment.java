@@ -39,6 +39,7 @@ public class EvaluacionFirstFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_evaluacion, container, false);
         ButterKnife.bind(this, rootView);
+        ((EvaluacionActivity)getActivity()).updateFragment(EvaluacionActivity.TAG_EVAL_FRAGMENT);
 
         Glide.with(getActivity())
                 .load(R.drawable.background4)

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.manguitostudios.primeblend.fragments.EvaluacionFirstFragment">
+    tools:context="com.manguitostudios.primeblend.fragments.RegisterFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -40,59 +40,55 @@
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name_hint"
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
+            android:hint="@string/name_hint"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <EditText
             android:id="@+id/mail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mail_hint"
+            android:hint="@string/mail_hint"
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <EditText
             android:id="@+id/phone"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/phone_hint"
+            android:hint="@string/phone_hint"
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <EditText
             android:id="@+id/job"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ocupation_hint"
+            android:hint="@string/ocupation_hint"
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <TextView
             android:layout_width="fill_parent"

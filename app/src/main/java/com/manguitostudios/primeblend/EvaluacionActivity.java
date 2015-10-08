@@ -1,19 +1,28 @@
 package com.manguitostudios.primeblend;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
+import com.manguitostudios.primeblend.Utils.onResponseRegister;
+import com.manguitostudios.primeblend.fragments.EndProcessFragment;
 import com.manguitostudios.primeblend.fragments.EvaluacionFirstFragment;
+import com.manguitostudios.primeblend.fragments.SurveyFragment;
 
-public class EvaluacionActivity extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class EvaluacionActivity extends AppCompatActivity implements onResponseRegister {
 
     public static final String TAG_EVAL_FRAGMENT = "EvaluacionFragment";
     public static final String TAG_EVAL_CAPTURE = "RegisterFragment";
     public static final String TAG_EVAL_SURVEY = "SurveyFragment";
+    public static final String TAG_EVAL_END_PROCESS = "EndProcess";
+    public String currentFragment = "";
+
+
+    public void updateFragment(String currentFragment) {
+        this.currentFragment = currentFragment;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +39,22 @@ public class EvaluacionActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        FragmentManager fm = getSupportFragmentManager();
+        EndProcessFragment endProcessFragment = (EndProcessFragment)fm.findFragmentByTag(TAG_EVAL_END_PROCESS);
+        SurveyFragment surveyFragment = (SurveyFragment)fm.findFragmentByTag(TAG_EVAL_SURVEY);
+        if (endProcessFragment !=null){
+            if (endProcessFragment.detail){
+                endProcessFragment.navigateBack();
+            }else{
+                getSupportFragmentManager().popBackStack();
+            }
+        }else if (surveyFragment !=null){
+            if (surveyFragment.detail){
+                surveyFragment.navigateBack();
+            }else{
+                getSupportFragmentManager().popBackStack();
+            }
+        }else if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
@@ -38,4 +62,9 @@ public class EvaluacionActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public void onReceivedData(JSONObject object) {
+
+    }
 }
