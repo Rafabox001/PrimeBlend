@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.manguitostudios.primeblend.Utils.Constants;
 import com.manguitostudios.primeblend.Utils.onResponseRegister;
 
 import org.json.JSONException;
@@ -29,7 +30,8 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
     private String responseJsonStr = null;
     private Request typeRequest;
     private String url;
-    private String name, email, phone, career;
+    private String name, email, phone, career, line, category_id;
+    private String survey1, survey2, survey3, survey4, survey5, survey6, survey7, userId;
 
     public RegisterCalls(Context c){
         mContext = c;
@@ -51,15 +53,33 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
         switch (typeRequest){
             case dataRequest:
                 email = params[0];
-                url = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=get_users&email=" + email;
+                url = Constants.validateEmailUrl + email;
                 break;
             case registerRequest:
                 name = params[0];
                 email = params[1];
                 phone = params[2];
                 career = params[3];
-                url = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=set_user";
-
+                line = params[4];
+                url = Constants.registerUrl;
+                break;
+            case categoriesRequest:
+                url = Constants.getAllCategories;
+                break;
+            case productsRequest:
+                url = Constants.getProductsByCategory + params [0];
+                category_id = params[0];
+                break;
+            case surveyRequest:
+                url = Constants.postSurvey;
+                survey1 = params[0];
+                survey2 = params[1];
+                survey3 = params[2];
+                survey4 = params[3];
+                survey5 = params[4];
+                survey6 = params[5];
+                survey7 = params[6];
+                userId = params[7];
                 break;
 
         }
@@ -88,17 +108,41 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
                     break;
                 case registerRequest:
                     //Creation for the request of register data
-
-
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setRequestMethod("POST");
                     urlConnection.addRequestProperty("name", name);
                     urlConnection.addRequestProperty("email", email);
                     urlConnection.addRequestProperty("phone", phone);
                     urlConnection.addRequestProperty("career", career);
-                    urlConnection.addRequestProperty("brand","monogram");
+                    urlConnection.addRequestProperty("brand", line);
                     urlConnection.connect();
                     break;
+                case categoriesRequest:
+                    //Creation for the request of movies data
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.connect();
+                    break;
+                case productsRequest:
+                    //Creation for the request of movies data
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.addRequestProperty("category_id", category_id);
+                    urlConnection.connect();
+                    break;
+                case surveyRequest:
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.addRequestProperty("q1", survey1);
+                    urlConnection.addRequestProperty("qmedia", survey2);
+                    urlConnection.addRequestProperty("q2", survey3);
+                    urlConnection.addRequestProperty("q3", survey4);
+                    urlConnection.addRequestProperty("q3text", survey5);
+                    urlConnection.addRequestProperty("q4", survey6);
+                    urlConnection.addRequestProperty("q4text", survey7);
+                    urlConnection.addRequestProperty("user_id", line);
+                    urlConnection.connect();
+
             }
 
 
@@ -134,9 +178,8 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
         if(result){
             try {
                 data = new JSONObject(responseJsonStr);
-                if(typeRequest == Request.dataRequest) {
-                    listener.onReceivedData(data);
-                }
+                listener.onReceivedData(data);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -149,7 +192,11 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
     }
 
     public static enum Request {
-        registerRequest,dataRequest
+        registerRequest,
+        dataRequest,
+        categoriesRequest,
+        productsRequest,
+        surveyRequest
     }
 
 

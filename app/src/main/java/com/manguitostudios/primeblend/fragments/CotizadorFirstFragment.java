@@ -2,13 +2,18 @@ package com.manguitostudios.primeblend.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.manguitostudios.primeblend.CatalogoActivity;
+import com.manguitostudios.primeblend.CotizadorActivity;
 import com.manguitostudios.primeblend.R;
+
+import java.util.zip.CheckedOutputStream;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +25,12 @@ public class CotizadorFirstFragment extends Fragment {
 
     @Bind(R.id.container)ImageView main_container;
     @Bind(R.id.transparency)ImageView transparency;
+    @Bind(R.id.monogram)ImageView monogram;
+    @Bind(R.id.iomabe)ImageView ioMabe;
+    @Bind(R.id.profile)ImageView profile;
+
+    public static final String PARAM_BRAND = "brand";
+    public static final String PARAM_ORIGIN = "origin";
 
     public CotizadorFirstFragment() {
         // Required empty public constructor
@@ -41,6 +52,60 @@ public class CotizadorFirstFragment extends Fragment {
         Glide.with(getActivity())
                 .load(R.drawable.screen_transparency)
                 .into(transparency);
+
+        monogram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString(PARAM_BRAND, "monogram");
+                args.putString(PARAM_ORIGIN, "cotizador");
+
+                SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
+                subcategoriesFragment.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_cotizador_container, subcategoriesFragment, CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.commit();
+            }
+        });
+
+        ioMabe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString(PARAM_BRAND, "iomabe");
+                args.putString(PARAM_ORIGIN, "cotizador");
+
+                SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
+                subcategoriesFragment.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_cotizador_container, subcategoriesFragment, CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.commit();
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString(PARAM_BRAND, "profile");
+                args.putString(PARAM_ORIGIN, "cotizador");
+
+                SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
+                subcategoriesFragment.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_cotizador_container, subcategoriesFragment, CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.addToBackStack(CotizadorActivity.TAG_COTIZADOR_SUBCATEGORY);
+                transaction.commit();
+            }
+        });
 
         return rootView;
     }

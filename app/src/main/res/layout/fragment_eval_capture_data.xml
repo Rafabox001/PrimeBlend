@@ -190,15 +190,14 @@
             android:id="@+id/existing_mail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mail_hint"
+            android:hint="@string/mail_hint"
             android:textColor="@color/text_gray"
             android:background="@color/transparency_white"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/internal_margin"
             android:layout_marginStart="@dimen/internal_margin"
             android:layout_marginRight="@dimen/internal_margin"
-            android:layout_marginEnd="@dimen/internal_margin"
-            android:textAllCaps="true"/>
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
         <Button
             android:id="@+id/next"

@@ -17,10 +17,10 @@
     <string name="register">Registrame</string>
     <string name="already_register">Ya estoy registrado</string>
     <string name="intro_register">Ayúdanos completando tus datos y pronto recibirás información exclusiva de Prime Blend \n \n ¡Gracias!</string>
-    <string name="name_hint">Nombre</string>
-    <string name="mail_hint">e-mail</string>
-    <string name="phone_hint">Teléfono</string>
-    <string name="ocupation_hint">Profesión</string>
+    <string name="name_hint">NOMBRE</string>
+    <string name="mail_hint">E_MAIL</string>
+    <string name="phone_hint">TELÉFONO</string>
+    <string name="ocupation_hint">PROFESIÓN</string>
     <string name="interested">En qué línea estás interesado:</string>
     <string name="send">Enviar</string>
     <string name="help_us">Ayúdanos completando esta encuesta de calidad de servicio, solo debes registrar tu e-mail con el que te registraste \n \n ¡Gracias!</string>
@@ -58,14 +58,26 @@
     <string name="salesman">4) Vendedor Responsable</string>
 
     <!-- Catalog and cotizador process -->
-    <string name="coccion">Cocción</string>
+    <string name="coccion">Cocinado</string>
     <string name="refrigeracion">Refrigeración</string>
     <string name="ventilacion">Ventilación</string>
-    <string name="complementos">Complementos</string>
-    <string name="colecciones">Colecciones</string>
+    <string name="lavavajillas">Lavavajillas</string>
 
 
     <!-- Calendar process -->
     <string name="calendar_intro">Déjanos tu E-Mail para recibir más información sobre futuros eventos:</string>
+
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
+    <string name="existing_user">Ya existe un registro previo con este email</string>
+    <string name="not_existing_user">No existe un registro previo con este email</string>
+    <string name="invalid_email">Formato de Email invalido!</string>
+    <string name="error">Hubo un problema con el registro, vuelve a intentarlo por favor!</string>
+
+    <string name="ficha_tecnica">Ficha Técnica:</string>
+    <string name="precio">Precio:</string>
+    <string name="add_balance">AGREGAR A COTIZACIÓN</string>
+    <string name="view_product">VER MÁS PRODUCTOS</string>
+    <string name="go_balance">IR A COTIZACIÓN</string>
 
 </resources>

@@ -42,8 +42,8 @@
 
         <ImageView
             android:id="@+id/monogram"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:background="@drawable/monogram"
@@ -54,8 +54,8 @@
 
         <ImageView
             android:id="@+id/profile"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:background="@drawable/profile"
@@ -66,8 +66,8 @@
 
         <ImageView
             android:id="@+id/iomabe"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="40dp"

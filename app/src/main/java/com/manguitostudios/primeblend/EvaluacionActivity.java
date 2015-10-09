@@ -3,10 +3,12 @@ package com.manguitostudios.primeblend;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.manguitostudios.primeblend.Utils.onResponseRegister;
 import com.manguitostudios.primeblend.fragments.EndProcessFragment;
 import com.manguitostudios.primeblend.fragments.EvaluacionFirstFragment;
+import com.manguitostudios.primeblend.fragments.RegisterFragment;
 import com.manguitostudios.primeblend.fragments.SurveyFragment;
 
 import org.json.JSONObject;
@@ -65,6 +67,23 @@ public class EvaluacionActivity extends AppCompatActivity implements onResponseR
 
     @Override
     public void onReceivedData(JSONObject object) {
+        Log.d("EvaluacionActivity", object.toString());
+        Log.d("EvaluacionActivity", currentFragment);
+        FragmentManager fm = getSupportFragmentManager();
+        switch (currentFragment){
+            case TAG_EVAL_CAPTURE:
+                RegisterFragment registerFragment = (RegisterFragment)fm.findFragmentByTag(TAG_EVAL_CAPTURE);
+                registerFragment.processOutput(object);
+                break;
+            case TAG_EVAL_SURVEY:
+                SurveyFragment surveyFragment = (SurveyFragment)fm.findFragmentByTag(TAG_EVAL_SURVEY);
+                surveyFragment.processOutput(object);
+                break;
+            case TAG_EVAL_END_PROCESS:
+                EndProcessFragment endProcessFragment = (EndProcessFragment)fm.findFragmentByTag(TAG_EVAL_END_PROCESS);
+                endProcessFragment.processOutput(object);
+                break;
 
+        }
     }
 }

@@ -1,19 +1,30 @@
 package com.manguitostudios.primeblend.fragments;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.manguitostudios.primeblend.EvaluacionActivity;
 import com.manguitostudios.primeblend.R;
+import com.manguitostudios.primeblend.network.RegisterCalls;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,6 +40,23 @@ public class SurveyFragment extends Fragment {
     @Bind(R.id.surveyPart1)LinearLayout surveyFirst;
     @Bind(R.id.surveyPart2)LinearLayout surveySecond;
 
+    @Bind(R.id.q1)RadioGroup question1;
+    @Bind(R.id.q_media)RadioGroup questionMedia;
+    @Bind(R.id.q2)RadioGroup question2;
+    @Bind(R.id.q3)RadioGroup question3;
+    @Bind(R.id.q4)RadioGroup question4;
+    @Bind(R.id.q3_comments)EditText q3_comments;
+    @Bind(R.id.q4_comments)EditText q4_comments;
+
+    private String PARAM_USER = "user_id";
+    private String PARAM_CODE = "code";
+    private String mUserId;
+    private String codeResponse;
+
+    private String respuesta1, respuestaMedia, respuesta2, respuesta3, respuesta4;
+
+
+
     public Boolean detail = false;
 
 
@@ -43,6 +71,11 @@ public class SurveyFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         ((EvaluacionActivity)getActivity()).updateFragment(EvaluacionActivity.TAG_EVAL_SURVEY);
 
+        if (getArguments() != null) {
+            Bundle bundle = getArguments();
+            mUserId = bundle.getString(PARAM_USER);
+        }
+
         Glide.with(getActivity())
                 .load(R.drawable.background2)
                 .into(main_container);
@@ -50,6 +83,102 @@ public class SurveyFragment extends Fragment {
         Glide.with(getActivity())
                 .load(R.drawable.screen_transparency)
                 .into(transparency);
+
+        question1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                Log.d("POSITION", String.valueOf(checkedId));
+                switch (checkedId) {
+                    case 2131493002:
+                        respuesta1 = "Restaurante";
+                        break;
+                    case 2131493003:
+                        respuesta1 = "Evento";
+                        break;
+                    case 2131493004:
+                        respuesta1 = "Referido";
+                        break;
+                }
+            }
+        });
+
+        questionMedia.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                Log.d("POSITION", String.valueOf(checkedId));
+                switch (checkedId){
+                    case 2131493006:
+                        respuestaMedia = "Digital";
+                        break;
+                    case 2131493007:
+                        respuestaMedia = "Impreso";
+                        break;
+                    case 2131493008:
+                        respuestaMedia = "Otro";
+                        break;
+                }
+            }
+        });
+
+        question2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                Log.d("POSITION", String.valueOf(checkedId));
+                switch (checkedId){
+                    case 2131493010:
+                        respuesta2 = "Excelente";
+                        break;
+                    case 2131493011:
+                        respuesta2 = "Bueno";
+                        break;
+                    case 2131493012:
+                        respuesta2 = "Regular";
+                        break;
+                    case 2131493013:
+                        respuesta2 = "Malo";
+                        break;
+                    case 2131493014:
+                        respuesta2 = "Muy Malo";
+                        break;
+                }
+            }
+        });
+
+        question3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                Log.d("POSITION", String.valueOf(checkedId));
+                switch (checkedId) {
+                    case 2131493016:
+                        respuesta3 = "Si";
+                        break;
+                    case 2131493017:
+                        respuesta3 = "No";
+                        break;
+                }
+            }
+        });
+
+        question4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                Log.d("POSITION", String.valueOf(checkedId));
+                switch (checkedId) {
+                    case 2131493021:
+                        respuesta4 = "Si";
+                        break;
+                    case 2131493022:
+                        respuesta4 = "No";
+                        break;
+                }
+            }
+        });
+
 
         return rootView;
     }
@@ -63,6 +192,11 @@ public class SurveyFragment extends Fragment {
 
     @OnClick(R.id.next2)
     public void navigateNext(){
+        RegisterCalls registerCalls = new RegisterCalls(getActivity(), RegisterCalls.Request.registerRequest);
+        registerCalls.execute(respuesta1, respuestaMedia, respuesta2, respuesta3, q3_comments.getText().toString(), respuesta4,
+                q4_comments.getText().toString(), mUserId);
+
+
         EndProcessFragment endProcessFragment = new EndProcessFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
@@ -77,5 +211,51 @@ public class SurveyFragment extends Fragment {
         surveyFirst.setVisibility(View.VISIBLE);
         surveySecond.setVisibility(View.GONE);
         detail = false;
+    }
+
+    public void processOutput(JSONObject response){
+        try {
+            codeResponse = response.getString(PARAM_CODE);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if (codeResponse.contentEquals("0")){
+            showDialog(getString(R.string.error));
+
+        }else if (codeResponse.contentEquals("1")){
+            Bundle args = new Bundle();
+            args.putString(PARAM_USER, mUserId);
+
+            EndProcessFragment endProcessFragment = new EndProcessFragment();
+            endProcessFragment.setArguments(args);
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragment_evaluacion_container, endProcessFragment, EvaluacionActivity.TAG_EVAL_END_PROCESS);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_END_PROCESS);
+            transaction.commit();
+
+        }
+
+
+    }
+
+    public void showDialog (String message){
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Error")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
