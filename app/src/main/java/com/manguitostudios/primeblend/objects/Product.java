@@ -15,6 +15,7 @@ public class Product implements Parcelable {
     public String pdf;
     public String image;
     public String thumbnail;
+    public int cantidad;
 
     public String getProduct_id() {
         return product_id;
@@ -80,10 +81,18 @@ public class Product implements Parcelable {
         this.thumbnail = thumbnail;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public Product(){}
 
     public Product(String product_id, String name, String description, String price,
-                   String currency, String pdf, String image, String thumbnail) {
+                   String currency, String pdf, String image, String thumbnail, int cantidad) {
         this.product_id = product_id;
         this.name = name;
         this.description = description;
@@ -92,6 +101,7 @@ public class Product implements Parcelable {
         this.pdf = pdf;
         this.image = image;
         this.thumbnail = thumbnail;
+        this.cantidad = cantidad;
     }
 
     @Override
@@ -109,6 +119,7 @@ public class Product implements Parcelable {
         dest.writeString(pdf);
         dest.writeString(image);
         dest.writeString(thumbnail);
+        dest.writeInt(cantidad);
     }
 
     public static final Parcelable.Creator<Product> CREATOR
@@ -136,5 +147,6 @@ public class Product implements Parcelable {
         pdf = in.readString();
         image = in.readString();
         thumbnail = in.readString();
+        cantidad = in.readInt();
     }
 }

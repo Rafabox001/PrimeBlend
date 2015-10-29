@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.manguitostudios.primeblend.CatalogoActivity;
+import com.manguitostudios.primeblend.CotizadorActivity;
 import com.manguitostudios.primeblend.R;
 import com.manguitostudios.primeblend.Utils.Constants;
 import com.manguitostudios.primeblend.adapters.ProductAdapter;
@@ -51,6 +52,8 @@ public class ProductsFragment extends Fragment {
     public static final String PARAM_ORIGIN = "origin";
     public static final String PARAM_SUBCATEGORY = "subcategory";
     public static final String PARAM_SUBCATEGORY_ID = "subcategory_id";
+    private String PARAM_USER = "user_id";
+    private String mUserId;
 
     public ProductsFragment(){
 
@@ -68,6 +71,12 @@ public class ProductsFragment extends Fragment {
             mOrigin = bundle.getString(PARAM_ORIGIN);
             origen.setText(mOrigin);
             mSucategory = bundle.getString(PARAM_SUBCATEGORY_ID);
+            mUserId = bundle.getString(PARAM_USER);
+        }
+        if (mOrigin.contentEquals("catálogo")){
+            ((CatalogoActivity)getActivity()).updateFragment(CatalogoActivity.TAG_CATALOGO_PRODUCTS);
+        }else{
+            ((CotizadorActivity)getActivity()).updateFragment(CotizadorActivity.TAG_COTIZADOR_PRODUCTS);
         }
         updateUi(mCategory);
 
@@ -119,7 +128,7 @@ public class ProductsFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        adapter = new ProductAdapter(getActivity(),products, mCategory, mOrigin);
+        adapter = new ProductAdapter(getActivity(),products, mCategory, mOrigin, mUserId);
 
         listContainer.setAdapter(adapter);
         adapter.notifyDataSetChanged();

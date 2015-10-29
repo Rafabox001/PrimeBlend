@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.manguitostudios.primeblend.EvaluacionActivity;
+import com.manguitostudios.primeblend.MainActivity;
 import com.manguitostudios.primeblend.R;
 
 import butterknife.Bind;
@@ -39,7 +40,6 @@ public class EvaluacionFirstFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_evaluacion, container, false);
         ButterKnife.bind(this, rootView);
-        ((EvaluacionActivity)getActivity()).updateFragment(EvaluacionActivity.TAG_EVAL_FRAGMENT);
 
         Glide.with(getActivity())
                 .load(R.drawable.background4)
@@ -61,7 +61,7 @@ public class EvaluacionFirstFragment extends Fragment {
         registerFragment.setArguments(args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.fragment_evaluacion_container, registerFragment, EvaluacionActivity.TAG_EVAL_CAPTURE);
+        transaction.replace(R.id.fragment_main, registerFragment, MainActivity.TAG_EVAL_CAPTURE);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_CAPTURE);
         transaction.commit();
@@ -76,7 +76,7 @@ public class EvaluacionFirstFragment extends Fragment {
         registerFragment.setArguments(args);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.fragment_evaluacion_container, registerFragment, EvaluacionActivity.TAG_EVAL_CAPTURE);
+        transaction.replace(R.id.fragment_main, registerFragment, MainActivity.TAG_EVAL_CAPTURE);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_CAPTURE);
         transaction.commit();

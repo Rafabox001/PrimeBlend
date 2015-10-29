@@ -93,6 +93,14 @@
 
     </LinearLayout>
 
+    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="45dp"
+        android:src="@android:drawable/ic_lock_idle_lock"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+
 
 
 </RelativeLayout>

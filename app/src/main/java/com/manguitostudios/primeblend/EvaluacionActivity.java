@@ -1,7 +1,9 @@
 package com.manguitostudios.primeblend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -21,6 +23,9 @@ public class EvaluacionActivity extends AppCompatActivity implements onResponseR
     public static final String TAG_EVAL_END_PROCESS = "EndProcess";
     public String currentFragment = "";
 
+    private String PARAM_USER = "user_id";
+    private String mUserId;
+
 
     public void updateFragment(String currentFragment) {
         this.currentFragment = currentFragment;
@@ -30,12 +35,21 @@ public class EvaluacionActivity extends AppCompatActivity implements onResponseR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluacion);
+        Intent intent = getIntent();
+        mUserId = intent.getStringExtra(PARAM_USER);
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_evaluacion_container, new EvaluacionFirstFragment(), TAG_EVAL_FRAGMENT)
-                    .addToBackStack(TAG_EVAL_FRAGMENT)
-                    .commit();
+            Bundle args = new Bundle();
+            args.putString(PARAM_USER, mUserId);
+
+            SurveyFragment surveyFragment = new SurveyFragment();
+            surveyFragment.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragment_evaluacion_container, surveyFragment, EvaluacionActivity.TAG_EVAL_SURVEY);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_SURVEY);
+            transaction.commit();
         }
     }
 

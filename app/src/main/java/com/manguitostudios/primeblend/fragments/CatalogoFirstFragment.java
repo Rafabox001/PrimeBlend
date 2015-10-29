@@ -31,6 +31,8 @@ public class CatalogoFirstFragment extends Fragment{
 
     public static final String PARAM_BRAND = "brand";
     public static final String PARAM_ORIGIN = "origin";
+    private String PARAM_USER = "user_id";
+    private String mUserId;
 
 
     public CatalogoFirstFragment() {
@@ -46,6 +48,11 @@ public class CatalogoFirstFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_catalogo, container, false);
         ButterKnife.bind(this, rootView);
 
+        if (getArguments() != null) {
+            Bundle bundle = getArguments();
+            mUserId = bundle.getString(PARAM_USER);
+        }
+
         Glide.with(getActivity())
                 .load(R.drawable.background9)
                 .into(main_container);
@@ -60,6 +67,7 @@ public class CatalogoFirstFragment extends Fragment{
                 Bundle args = new Bundle();
                 args.putString(PARAM_BRAND, "monogram");
                 args.putString(PARAM_ORIGIN, "catálogo");
+                args.putString(PARAM_USER, mUserId);
 
                 SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
                 subcategoriesFragment.setArguments(args);
@@ -78,6 +86,7 @@ public class CatalogoFirstFragment extends Fragment{
                 Bundle args = new Bundle();
                 args.putString(PARAM_BRAND, "iomabe");
                 args.putString(PARAM_ORIGIN, "catálogo");
+                args.putString(PARAM_USER, mUserId);
 
                 SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
                 subcategoriesFragment.setArguments(args);
@@ -96,6 +105,7 @@ public class CatalogoFirstFragment extends Fragment{
                 Bundle args = new Bundle();
                 args.putString(PARAM_BRAND, "profile");
                 args.putString(PARAM_ORIGIN, "catálogo");
+                args.putString(PARAM_USER, mUserId);
 
                 SubcategoriesFragment subcategoriesFragment = new SubcategoriesFragment();
                 subcategoriesFragment.setArguments(args);

@@ -1,5 +1,6 @@
 package com.manguitostudios.primeblend.network;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -23,6 +24,8 @@ import java.net.URL;
  */
 public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
 
+    ProgressDialog progressDialog;
+
     private final String NETWORK_TAG = RegisterCalls.class.getSimpleName();
     private final Context mContext;
     private onResponseRegister listener;
@@ -32,6 +35,12 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
     private String url;
     private String name, email, phone, career, line, category_id;
     private String survey1, survey2, survey3, survey4, survey5, survey6, survey7, userId;
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog= ProgressDialog.show(mContext, "Enviando","Realizando operación, por favor espere", true);
+        super.onPreExecute();
+    }
 
     public RegisterCalls(Context c){
         mContext = c;
@@ -80,6 +89,32 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
                 survey6 = params[5];
                 survey7 = params[6];
                 userId = params[7];
+                break;
+            case calendarRequest:
+                url = Constants.calendar_events;
+                break;
+            case registerMail:
+                url = Constants.register_calendar_mail;
+                survey1 = params[0];
+                userId = params[1];
+                break;
+            case surveyBuyRequest:
+                url = Constants.postSurvey2;
+                survey1 = params[0];
+                survey2 = params[1];
+                survey3 = params[2];
+                survey4 = params[3];
+                survey5 = params[4];
+                survey6 = params[5];
+                userId = params[6];
+                break;
+            case exchangeRateRequest:
+                url = Constants.exchange_rate;
+                break;
+            case valuationRequest:
+                url = Constants.sendValuation;
+                survey1 = params[0];
+                userId = params[1];
                 break;
 
         }
@@ -133,15 +168,54 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
                 case surveyRequest:
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoOutput(true);
                     urlConnection.addRequestProperty("q1", survey1);
-                    urlConnection.addRequestProperty("qmedia", survey2);
                     urlConnection.addRequestProperty("q2", survey3);
                     urlConnection.addRequestProperty("q3", survey4);
                     urlConnection.addRequestProperty("q3text", survey5);
                     urlConnection.addRequestProperty("q4", survey6);
-                    urlConnection.addRequestProperty("q4text", survey7);
-                    urlConnection.addRequestProperty("user_id", line);
+                    urlConnection.addRequestProperty("comments", survey7);
+                    urlConnection.addRequestProperty("userid", userId);
+                    urlConnection.setReadTimeout(10000);
                     urlConnection.connect();
+                    break;
+                case calendarRequest:
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.connect();
+                    break;
+                case registerMail:
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.addRequestProperty("evento", survey1);
+                    urlConnection.addRequestProperty("userid", userId);
+                    break;
+                case surveyBuyRequest:
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoOutput(true);
+                    urlConnection.addRequestProperty("q1", survey1);
+                    urlConnection.addRequestProperty("q1other", survey3);
+                    urlConnection.addRequestProperty("q1mount", survey4);
+                    urlConnection.addRequestProperty("q2", survey5);
+                    urlConnection.addRequestProperty("q3", survey6);
+                    urlConnection.addRequestProperty("q4", survey7);
+                    urlConnection.addRequestProperty("userid", userId);
+                    urlConnection.setReadTimeout(10000);
+                    urlConnection.connect();
+                    break;
+                case exchangeRateRequest:
+                    //Creation for the request of movies data
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("GET");
+                    urlConnection.connect();
+                    break;
+                case valuationRequest:
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.addRequestProperty("json", survey1);
+                    urlConnection.addRequestProperty("userid", userId);
+                    break;
 
             }
 
@@ -182,8 +256,22 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
 
             } catch (JSONException e) {
                 e.printStackTrace();
+                data = new JSONObject();
+                if (!responseJsonStr.contains("code")){
+                    try {
+                        data.put("code", 2);
+                        data.put("exchange_rate", responseJsonStr.trim());
+                        listener.onReceivedData(data);
+                    } catch (JSONException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+
             }
         }
+        progressDialog.dismiss();
+        super.onPostExecute(result);
+
     }
 
     @Override
@@ -196,7 +284,12 @@ public class RegisterCalls extends AsyncTask<String,Void,Boolean> {
         dataRequest,
         categoriesRequest,
         productsRequest,
-        surveyRequest
+        surveyRequest,
+        calendarRequest,
+        registerMail,
+        surveyBuyRequest,
+        exchangeRateRequest,
+        valuationRequest,
     }
 
 

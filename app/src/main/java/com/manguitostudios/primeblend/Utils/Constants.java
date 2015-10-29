@@ -43,4 +43,16 @@ public class Constants {
     public static final String profile_lavavajillas = "24";
     public static final String profile_refrigeracion = "22";
 
+    /**
+     * Urls para calendario
+     */
+    public static final String calendar_events = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=get_events";
+    public static final String register_calendar_mail = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=set_events_email";
+
+    /**
+     * Urls para cotizador
+     */
+    public static final String exchange_rate = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=get_exchange_rate";
+    public static final String sendValuation = "http://primeblend.life/_app/wp-admin/admin-ajax.php?action=api&method=set_quote";
+
 }

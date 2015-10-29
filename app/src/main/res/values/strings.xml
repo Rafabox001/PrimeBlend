@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PrimeBlend</string>
+    <string name="app_name">PRIMEBLEND</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -58,14 +58,15 @@
     <string name="salesman">4) Vendedor Responsable</string>
 
     <!-- Catalog and cotizador process -->
-    <string name="coccion">Cocinado</string>
+    <string name="coccion">Cocción</string>
     <string name="refrigeracion">Refrigeración</string>
     <string name="ventilacion">Ventilación</string>
     <string name="lavavajillas">Lavavajillas</string>
 
 
     <!-- Calendar process -->
-    <string name="calendar_intro">Déjanos tu E-Mail para recibir más información sobre futuros eventos:</string>
+    <string name="calendar_intro">¿A que evento asististe?</string>
+    <string name="calendar_question">Deseas recibir informacion sobre fututos eventos</string>
 
     <string name="ok">Ok</string>
     <string name="cancel">Cancelar</string>
@@ -80,4 +81,27 @@
     <string name="view_product">VER MÁS PRODUCTOS</string>
     <string name="go_balance">IR A COTIZACIÓN</string>
 
+    <string name="cantidad">Cantidad</string>
+    <string name="costo">Costo</string>
+    <string name="send_mail">ENVIAR POR E-MAIL</string>
+
+    <string name="descuento_cotizacion">DESCUENTO:</string>
+    <string name="descuento_hint">Descuento (%)</string>
+    <string name="total_cotizacion">TOTAL: $%1$s</string>
+    <string name="tipo_cambio">Tipo de cambio: US Dollar = %1$s peso mexicano*</string>
+
+    <string name="privacy_policy">Mabe, S.A. de C.V. con domicilio en Av. De las Palmas #100 Col. Lomas de Chapultepec, C.P. 11000, Miguel Hidalgo, México, D.F., es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección. \n
+Su información personal será utilizada para proveer los servicios y productos que ha solicitado, informarle sobre cambios en los mismos y evaluar la calidad del servicio que le brindamos.\n
+\n
+Usted tiene derecho de acceder, rectificar y cancelar sus datos personales, así como de oponerse al tratamiento de los mismos o revocar el consentimiento que para tal fin nos haya otorgado, a través de los procedimientos que hemos implementado.\n
+Si usted desea dejar de recibir mensajes promocionales de nuestra parte puede solicitarlo a través de un correo electrónico a <u>maria.huerta@mabe.com.mx</u></string>
+
+    <string name="error_checkout">Ocurrio un problema al momento de enviar el email, por favor intentalo nuevamente</string>
+    <string name="seller_name">NOMBRE DEL VENDEDOR</string>
+    <string name="seller_email">E-MAIL DEL VENDEDOR</string>
+
+    <string name="register_mail">Ahora estas registrado y recibiras información de nuestros proximos eventos</string>
+    <string name="mail_sent">Tu email se ha enviado</string>
+    <string name="logout">Deseas salir de la sesión actual?</string>
+    <string name="confirmation">Su cotización fue enviada de manera exitosa!!</string>
 </resources>

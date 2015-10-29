@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +24,7 @@ import com.manguitostudios.primeblend.EvaluacionActivity;
 import com.manguitostudios.primeblend.R;
 import com.manguitostudios.primeblend.network.RegisterCalls;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,11 +49,16 @@ public class SurveyFragment extends Fragment {
     @Bind(R.id.q4)RadioGroup question4;
     @Bind(R.id.q3_comments)EditText q3_comments;
     @Bind(R.id.q4_comments)EditText q4_comments;
+    @Bind(R.id.q1_other)RadioButton other;
+    @Bind(R.id.other_text)EditText otherText;
 
     private String PARAM_USER = "user_id";
     private String PARAM_CODE = "code";
+    private String PARAM_SURVEY = "survey_id";
+    private String idUser;
     private String mUserId;
     private String codeResponse;
+    private String mSurveyId;
 
     private String respuesta1, respuestaMedia, respuesta2, respuesta3, respuesta4;
 
@@ -90,14 +97,20 @@ public class SurveyFragment extends Fragment {
                 // checkedId is the RadioButton selected
                 Log.d("POSITION", String.valueOf(checkedId));
                 switch (checkedId) {
-                    case 2131493002:
+                    case 1:
                         respuesta1 = "Restaurante";
+                        questionMedia.clearCheck();
+                        other.setChecked(false);
                         break;
-                    case 2131493003:
+                    case 2:
                         respuesta1 = "Evento";
+                        questionMedia.clearCheck();
+                        other.setChecked(false);
                         break;
-                    case 2131493004:
+                    case 3:
                         respuesta1 = "Referido";
+                        questionMedia.clearCheck();
+                        other.setChecked(false);
                         break;
                 }
             }
@@ -109,15 +122,27 @@ public class SurveyFragment extends Fragment {
                 // checkedId is the RadioButton selected
                 Log.d("POSITION", String.valueOf(checkedId));
                 switch (checkedId){
-                    case 2131493006:
-                        respuestaMedia = "Digital";
+                    case 4:
+                        respuesta1 = "Digital";
+                        question1.clearCheck();
+                        other.setChecked(false);
                         break;
-                    case 2131493007:
-                        respuestaMedia = "Impreso";
+                    case 5:
+                        respuesta1 = "Impreso";
+                        question1.clearCheck();
+                        other.setChecked(false);
                         break;
-                    case 2131493008:
-                        respuestaMedia = "Otro";
-                        break;
+                }
+            }
+        });
+
+        other.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    question1.clearCheck();
+                    questionMedia.clearCheck();
+                    respuesta1 = "otro";
                 }
             }
         });
@@ -128,19 +153,19 @@ public class SurveyFragment extends Fragment {
                 // checkedId is the RadioButton selected
                 Log.d("POSITION", String.valueOf(checkedId));
                 switch (checkedId){
-                    case 2131493010:
+                    case 6:
                         respuesta2 = "Excelente";
                         break;
-                    case 2131493011:
+                    case 7:
                         respuesta2 = "Bueno";
                         break;
-                    case 2131493012:
+                    case 8:
                         respuesta2 = "Regular";
                         break;
-                    case 2131493013:
+                    case 9:
                         respuesta2 = "Malo";
                         break;
-                    case 2131493014:
+                    case 10:
                         respuesta2 = "Muy Malo";
                         break;
                 }
@@ -153,10 +178,10 @@ public class SurveyFragment extends Fragment {
                 // checkedId is the RadioButton selected
                 Log.d("POSITION", String.valueOf(checkedId));
                 switch (checkedId) {
-                    case 2131493016:
+                    case 11:
                         respuesta3 = "Si";
                         break;
-                    case 2131493017:
+                    case 12:
                         respuesta3 = "No";
                         break;
                 }
@@ -169,10 +194,10 @@ public class SurveyFragment extends Fragment {
                 // checkedId is the RadioButton selected
                 Log.d("POSITION", String.valueOf(checkedId));
                 switch (checkedId) {
-                    case 2131493021:
+                    case 13:
                         respuesta4 = "Si";
                         break;
-                    case 2131493022:
+                    case 14:
                         respuesta4 = "No";
                         break;
                 }
@@ -192,18 +217,14 @@ public class SurveyFragment extends Fragment {
 
     @OnClick(R.id.next2)
     public void navigateNext(){
-        RegisterCalls registerCalls = new RegisterCalls(getActivity(), RegisterCalls.Request.registerRequest);
+        RegisterCalls registerCalls = new RegisterCalls(getActivity(), RegisterCalls.Request.surveyRequest);
         registerCalls.execute(respuesta1, respuestaMedia, respuesta2, respuesta3, q3_comments.getText().toString(), respuesta4,
                 q4_comments.getText().toString(), mUserId);
 
 
-        EndProcessFragment endProcessFragment = new EndProcessFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.fragment_evaluacion_container, endProcessFragment, EvaluacionActivity.TAG_EVAL_END_PROCESS);
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_END_PROCESS);
-        transaction.commit();
+
+
 
     }
 
@@ -214,10 +235,22 @@ public class SurveyFragment extends Fragment {
     }
 
     public void processOutput(JSONObject response){
-        try {
-            codeResponse = response.getString(PARAM_CODE);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (response.toString().contains("data")){
+            try {
+                codeResponse = response.getString(PARAM_CODE);
+                JSONArray userArray = response.getJSONArray("data");
+                JSONObject userInfo = userArray.getJSONObject(0);
+                idUser = userInfo.getString(PARAM_USER);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                codeResponse = response.getString(PARAM_CODE);
+                mSurveyId = response.getString(PARAM_SURVEY);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         if (codeResponse.contentEquals("0")){

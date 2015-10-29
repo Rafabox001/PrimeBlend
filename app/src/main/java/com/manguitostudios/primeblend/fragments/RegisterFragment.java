@@ -2,7 +2,9 @@ package com.manguitostudios.primeblend.fragments;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -20,11 +22,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.manguitostudios.primeblend.CatalogoActivity;
 import com.manguitostudios.primeblend.EvaluacionActivity;
+import com.manguitostudios.primeblend.MainActivity;
 import com.manguitostudios.primeblend.R;
 import com.manguitostudios.primeblend.Utils.onResponseRegister;
 import com.manguitostudios.primeblend.network.RegisterCalls;
 
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -64,6 +68,9 @@ public class RegisterFragment extends Fragment {
     private String operation;
     private String line = "monogram";
 
+    public static final String PREF_DATA = "json_data";
+    public static final String PREF_LIST = "json_list";
+
     public RegisterFragment(){
 
     }
@@ -73,7 +80,7 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_eval_capture_data, container, false);
         ButterKnife.bind(this, rootView);
-        ((EvaluacionActivity)getActivity()).updateFragment(EvaluacionActivity.TAG_EVAL_CAPTURE);
+        ((MainActivity)getActivity()).updateFragment(MainActivity.TAG_EVAL_CAPTURE);
 
         if (getArguments() != null) {
             Bundle bundle = getArguments();
@@ -186,31 +193,50 @@ public class RegisterFragment extends Fragment {
     }
 
     public void processOutput(JSONObject response){
-        try {
-            codeResponse = response.getString(PARAM_CODE);
-            idUser = response.getString(PARAM_USER);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        Log.d("JSON", response.toString());
+        if (response.toString().contains("data")){
+            try {
+                codeResponse = response.getString(PARAM_CODE);
+                JSONArray userArray = response.getJSONArray("data");
+                JSONObject userInfo = userArray.getJSONObject(0);
+                idUser = userInfo.getString(PARAM_USER);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                codeResponse = response.getString(PARAM_CODE);
+                idUser = response.getString(PARAM_USER);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
+
 
         if (codeResponse.contentEquals("0")){
             if (operation.contentEquals("register")){
                 showDialog(getString(R.string.error));
-            }else if (operation.contentEquals("existing")){
+            }else if (operation.contentEquals("existing")) {
                 showDialog(getString(R.string.not_existing_user));
             }
 
         }else if (codeResponse.contentEquals("1")){
-            Bundle args = new Bundle();
-            args.putString(USER_ID, idUser);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(PREF_LIST, null); // value to store
+            editor.putString(PREF_DATA, null); // value to store
+            editor.commit();
 
-            SurveyFragment surveyFragment = new SurveyFragment();
-            surveyFragment.setArguments(args);
+            Bundle args = new Bundle();
+            args.putString(PARAM_USER, idUser);
+
+            MainActivityFragment mainActivityFragment = new MainActivityFragment();
+            mainActivityFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.fragment_evaluacion_container, surveyFragment, EvaluacionActivity.TAG_EVAL_SURVEY);
+            transaction.replace(R.id.fragment_main, mainActivityFragment, MainActivity.TAG_MAIN);
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            transaction.addToBackStack(EvaluacionActivity.TAG_EVAL_SURVEY);
+            transaction.addToBackStack(MainActivity.TAG_MAIN);
             transaction.commit();
 
         }else if (codeResponse.contentEquals("2")){

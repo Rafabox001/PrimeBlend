@@ -83,15 +83,6 @@
                     android:textColor="@color/white"
                     android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="@string/ficha_tecnica"
-                    android:background="@color/buttonColor"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="true"/>
 
                 <TextView
                     android:id="@+id/descripcion"
@@ -104,7 +95,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -132,19 +123,12 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"/>
 
-                </LinearLayout>
+                    <NumberPicker android:id="@+id/numberpicker"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
 
-                <Button
-                    android:id="@+id/addToBalance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_balance"
-                    android:padding="15dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/buttonColor"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:textSize="15sp"/>
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -154,6 +138,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fichaTecnica"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ficha_tecnica"
+                android:background="@color/buttonColor"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/internal_margin"
+                android:layout_marginStart="@dimen/internal_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+
+            <Button
+                android:id="@+id/addToBalance"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/add_balance"
+                android:background="@color/buttonColor"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/internal_margin"
+                android:layout_marginEnd="@dimen/internal_margin"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button

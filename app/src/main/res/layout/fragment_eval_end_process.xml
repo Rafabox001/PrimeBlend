@@ -20,7 +20,7 @@
         android:id="@+id/purchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
@@ -77,7 +77,7 @@
 
     <LinearLayout
         android:id="@+id/purchaseInfo"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

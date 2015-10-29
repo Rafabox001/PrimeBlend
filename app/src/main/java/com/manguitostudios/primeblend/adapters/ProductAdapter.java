@@ -44,13 +44,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public static final String PARAM_BRAND = "brand";
     public static final String PARAM_ORIGIN = "origin";
     public static final String PARAM_PRODUCT = "product";
+    private String PARAM_USER = "user_id";
+    private String mUserId;
 
-    public ProductAdapter(Context context, ArrayList<Product> all_products, String category, String origin) {
+    public ProductAdapter(Context context, ArrayList<Product> all_products, String category, String origin, String userId) {
         mContext = context;
         products = all_products;
         isFirstTime = true;
         mCategory = category;
         mOrigin = origin;
+        mUserId = userId;
     }
     public ProductAdapter(Context context, ArrayList<Product> all_products, onImageSelectedListener listener) {
         mContext = context;
@@ -94,6 +97,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         args.putString(PARAM_ORIGIN, mOrigin);
         args.putString(PARAM_BRAND, mCategory);
         args.putParcelable(PARAM_PRODUCT, product);
+        args.putString(PARAM_USER, mUserId);
 
         mFragment.setArguments(args);
         if (mOrigin.contentEquals("catálogo")){

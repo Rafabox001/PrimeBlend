@@ -1,5 +1,6 @@
 package com.manguitostudios.primeblend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.manguitostudios.primeblend.Utils.onResponseRegister;
+import com.manguitostudios.primeblend.fragments.CatalogoFirstFragment;
 import com.manguitostudios.primeblend.fragments.CotizadorFirstFragment;
 import com.manguitostudios.primeblend.fragments.ProductsFragment;
 
@@ -23,17 +25,37 @@ public class CotizadorActivity extends AppCompatActivity implements onResponseRe
     public static final String TAG_COTIZADOR_DETAIL = "ProductsDetailFragment";
 
     public static final String TAG_COTIZADOR_FRAGMENT = "CotizadorFirstFragment";
+    public static final String TAG_COTIZADOR_CHECKOUT = "CheckoutFragment";
+    public String currentFragment = "";
+
+    private String PARAM_USER = "user_id";
+    private String mUserId;
+
+    public void updateFragment(String currentFragment) {
+        this.currentFragment = currentFragment;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cotizador);
+        Intent intent = getIntent();
+        mUserId = intent.getStringExtra(PARAM_USER);
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_cotizador_container, new CotizadorFirstFragment(), TAG_COTIZADOR_FRAGMENT)
-                    .addToBackStack(TAG_COTIZADOR_FRAGMENT)
-                    .commit();
+            Bundle args = new Bundle();
+            args.putString(PARAM_USER, mUserId);
+
+            CotizadorFirstFragment cotizadorFirstFragment = new CotizadorFirstFragment();
+            cotizadorFirstFragment.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragment_cotizador_container, cotizadorFirstFragment, CotizadorActivity.TAG_COTIZADOR_FRAGMENT);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.addToBackStack(CotizadorActivity.TAG_COTIZADOR_FRAGMENT);
+            transaction.commit();
+
+
         }
 
     }

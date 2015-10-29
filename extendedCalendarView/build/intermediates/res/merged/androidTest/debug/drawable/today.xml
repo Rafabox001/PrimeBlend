@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="#cbcbcb"/>
+
+</shape>
+<!-- From: file:/Users/manguitodeveloper01/AndroidStudioProjects/PrimeBlend/extendedCalendarView/src/main/res/drawable/today.xml --><!-- From: file:/Users/manguitodeveloper01/AndroidStudioProjects/PrimeBlend/extendedCalendarView/build/intermediates/bundles/debug/res/drawable/today.xml -->

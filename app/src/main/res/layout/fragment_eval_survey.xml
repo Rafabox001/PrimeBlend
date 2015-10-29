@@ -50,19 +50,19 @@
             android:orientation="horizontal"
             android:id="@+id/q1">
 
-            <RadioButton android:id="@+id/q1_op1"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q1_op1"/>
 
-            <RadioButton android:id="@+id/q1_op2"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q1_op2"/>
 
-            <RadioButton android:id="@+id/q1_op3"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -91,22 +91,50 @@
             android:layout_marginEnd="@dimen/internal_margin"
             android:orientation="horizontal"
             android:id="@+id/q_media">
-            <RadioButton android:id="@+id/media_op1"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/media_op1"/>
-            <RadioButton android:id="@+id/media_op2"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/media_op2"/>
-            <RadioButton android:id="@+id/media_op3"
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/transparency_white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin">
+
+            <RadioButton android:id="@+id/q1_other"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/media_op3"/>
-        </RadioGroup>
+                android:text="@string/media_op3"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/small_separation"
+                android:layout_marginEnd="@dimen/small_separation"/>
+
+            <EditText
+                android:id="@+id/other_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_separation"
+                android:layout_marginStart="@dimen/small_separation"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"/>
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="fill_parent"
@@ -129,31 +157,31 @@
             android:layout_marginEnd="@dimen/internal_margin"
             android:orientation="horizontal"
             android:id="@+id/q2">
-            <RadioButton android:id="@+id/q2_op1"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_op1"/>
 
-            <RadioButton android:id="@+id/q2_op2"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_op2"/>
 
-            <RadioButton android:id="@+id/q2_op3"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_op3"/>
 
-            <RadioButton android:id="@+id/q2_op4"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_op4"/>
 
-            <RadioButton android:id="@+id/q2_op5"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -181,12 +209,12 @@
             android:layout_marginEnd="@dimen/internal_margin"
             android:orientation="horizontal"
             android:id="@+id/q3">
-            <RadioButton android:id="@+id/q3_op1"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/op_yes"/>
-            <RadioButton android:id="@+id/q3_op2"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -258,12 +286,12 @@
             android:layout_marginEnd="@dimen/internal_margin"
             android:orientation="horizontal"
             android:id="@+id/q4">
-            <RadioButton android:id="@+id/q4_op1"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/op_yes"/>
-            <RadioButton android:id="@+id/q4_op2"
+            <RadioButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

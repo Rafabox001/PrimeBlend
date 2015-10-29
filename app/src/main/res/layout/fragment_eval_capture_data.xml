@@ -152,11 +152,24 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="40dp"
             android:layout_gravity="center"
             android:background="@color/buttonColor"
             android:text="@string/send"
             android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="@dimen/internal_margin"
+            android:layout_marginStart="@dimen/internal_margin"
+            android:layout_marginRight="@dimen/internal_margin"
+            android:layout_marginEnd="@dimen/internal_margin"/>
 
 
 

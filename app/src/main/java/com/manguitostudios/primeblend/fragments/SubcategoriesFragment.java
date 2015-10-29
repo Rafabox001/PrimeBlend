@@ -38,6 +38,8 @@ public class SubcategoriesFragment extends Fragment{
     public static final String PARAM_SUBCATEGORY = "subcategory";
     public static final String PARAM_SUBCATEGORY_ID = "subcategory_id";
     private String categoryId;
+    private String PARAM_USER = "user_id";
+    private String mUserId;
 
     public SubcategoriesFragment(){
 
@@ -49,11 +51,14 @@ public class SubcategoriesFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_subcategories, container, false);
         ButterKnife.bind(this, rootView);
 
+
+
         if (getArguments() != null) {
             Bundle bundle = getArguments();
             mCategory = bundle.getString(PARAM_BRAND);
             mOrigin = bundle.getString(PARAM_ORIGIN);
             origen.setText(mOrigin);
+            mUserId = bundle.getString(PARAM_USER);
         }
         updateUi(mCategory);
 
@@ -106,6 +111,7 @@ public class SubcategoriesFragment extends Fragment{
         args.putString(PARAM_ORIGIN, mOrigin);
         args.putString(PARAM_BRAND, mCategory);
         args.putString(PARAM_SUBCATEGORY, "cocinado");
+        args.putString(PARAM_USER, mUserId);
 
         ProductsFragment productsFragment = new ProductsFragment();
         productsFragment.setArguments(args);
@@ -144,6 +150,7 @@ public class SubcategoriesFragment extends Fragment{
         args.putString(PARAM_ORIGIN, mOrigin);
         args.putString(PARAM_BRAND, mCategory);
         args.putString(PARAM_SUBCATEGORY, "refrigeracion");
+        args.putString(PARAM_USER, mUserId);
 
         ProductsFragment productsFragment = new ProductsFragment();
         productsFragment.setArguments(args);
@@ -180,6 +187,7 @@ public class SubcategoriesFragment extends Fragment{
         args.putString(PARAM_ORIGIN, mOrigin);
         args.putString(PARAM_BRAND, mCategory);
         args.putString(PARAM_SUBCATEGORY, "ventilacion");
+        args.putString(PARAM_USER, mUserId);
 
         ProductsFragment productsFragment = new ProductsFragment();
         productsFragment.setArguments(args);
@@ -216,6 +224,7 @@ public class SubcategoriesFragment extends Fragment{
         args.putString(PARAM_ORIGIN, mOrigin);
         args.putString(PARAM_BRAND, mCategory);
         args.putString(PARAM_SUBCATEGORY, "lavavajillas");
+        args.putString(PARAM_USER, mUserId);
 
         ProductsFragment productsFragment = new ProductsFragment();
         productsFragment.setArguments(args);
